@@ -3,7 +3,8 @@
   "stac_version": "1.1.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/eo/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/datacube/v2.2.0/schema.json"
   ],
   "id": "ndvi-example-stac-item",
   "geometry": {
@@ -41,7 +42,13 @@
   ],
   "properties": {
     "proj:epsg": 4326,
-    "datetime": "2022-01-01T00:00:00Z"
+    "datetime": "2022-01-01T00:00:00Z",
+    "cube:dimensions": {
+        "x": {"type": "spatial", "axis": "x"},
+        "y": {"type": "spatial", "axis": "y"},
+        "t": {"type": "temporal"},
+        "bands": {"type": "bands", "values": ["S2_s2cr_pvir2_threshold_img"]}
+    }
   },
   "links": [],
   "assets": {
